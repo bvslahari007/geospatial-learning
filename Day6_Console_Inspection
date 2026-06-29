@@ -39,6 +39,7 @@ Water absorbs NIR very strongly and reflects a little Red.
 So NIR < Red, which makes (NIR - Red) negative.
 Plants do the opposite — they reflect NIR strongly, so NDVI is high and positive.
 ![alt text](image-2.png)
+![alt text](image-3.png)
 
 ## Key insight
 
