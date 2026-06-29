@@ -1,0 +1,52 @@
+# Day 6 — Metadata Inspection and Pixel Value Exploration
+
+## What I did
+
+Inspected the metadata of the Sentinel-2 image loaded in Day 5 and explored
+actual pixel values using the GEE Inspector tool.
+
+## What the metadata told us
+
+- Date taken: January 5, 2024
+- Spacecraft: Sentinel-2A
+- Cloud cover: 0.74% — almost perfectly clear
+- Vegetation: 35% of the image
+- Water: 22.9% of the image
+- Not vegetated: 29.9% (bare soil, settlements)
+
+![alt text](image-1.png)
+
+## How to print metadata in GEE
+
+```javascript
+print(sentinel);
+```
+
+Expand the properties section in the Console to see all 101 properties.
+
+## Pixel inspection
+
+Used the Inspector tab in GEE to click on individual pixels and read values.
+
+| Pixel location               | NDVI value | What it means            |
+| ---------------------------- | ---------- | ------------------------ |
+| Dark green area (rice paddy) | 0.64       | Dense healthy vegetation |
+| Brown/pink area (river)      | -0.42      | Water body               |
+
+## Why water gives negative NDVI
+
+Water absorbs NIR very strongly and reflects a little Red.
+So NIR < Red, which makes (NIR - Red) negative.
+Plants do the opposite — they reflect NIR strongly, so NDVI is high and positive.
+![alt text](image-2.png)
+
+## Key insight
+
+The NDVI range (-0.42 to 0.64 in this image) is exactly what the Random Forest
+classifier will use later. Each pixel's value becomes a feature the model learns
+from — water clusters around negative values, dense vegetation clusters above 0.6.
+
+## Region
+
+West Godavari district, Andhra Pradesh — Godavari delta
+Image date: January 5, 2024

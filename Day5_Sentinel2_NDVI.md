@@ -58,4 +58,4 @@ Map.addLayer(
 - Brown/pink pixels = water bodies (Godavari river)
 - min/max in addLayer controls display brightness, not the data itself
 
-![alt text](image.png)
+![Map on GEE](image.png)
